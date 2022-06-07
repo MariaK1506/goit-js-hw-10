@@ -1,10 +1,9 @@
 export default { fetchCountries };
 const BASE_URL = 'https://restcountries.com/v3.1/name/';
+const params = '?fields=name,capital,population,flags,languages';
 
 function fetchCountries(name) {
-  return fetch(
-    `${BASE_URL}${name}?fields=name,capital,population,flags,languages`
-  ).then(response => {
+  return fetch(`${BASE_URL}${name}${params}`).then(response => {
     if (!response.ok) {
       throw new Error(response.status);
     }
